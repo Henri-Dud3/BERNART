@@ -55,6 +55,7 @@
             <button class="btnmobile">Entrar</button>
         </div>
            <ul class="items-links">
+            <li class="itens" id="message">asdjhsaj</li>
             <li><a class="itens" href="Ofer.html">Ofertas</a></li>
             <li><a class="itens" href="Fe.html">Feminino</a></li>
             <li><a class="itens" href="Mas.html">Masculino</a></li>
@@ -76,7 +77,7 @@
       
       
         <br><br><br>
-      <h1 class="Feita-pvc">Essenciais do guarda-roupa</h1>
+      <h1 class="Feita-pvc">Ofertas</h1>
       <br><br>
       <div class="feit">
         <div class="sli">
@@ -103,5 +104,61 @@
                   <li class="term"><a href="#">Contato</a></li>
               </ul>
           </footer>
+          <script>
+            console.log("Olá, mundo!");
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const messageText = document.getElementById('message');
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === index ? 'block' : 'none';
+                });
+            }
+            
+            function changeSlide(step) {
+                currentSlide += step;
+                if (currentSlide < 0) {
+                    currentSlide = slides.length - 1;
+                } else if (currentSlide >= slides.length) {
+                    currentSlide = 0;
+                }
+                showSlide(currentSlide);
+            }
+            
+            setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+          
+            function showWelcomeMsg(){
+              alert("Seja bem vindo ao meu site")
+              const nome = prompt("Qual seu nome?")
+              
+  
+              messageText.style.display = "flex";
+              messageText.style.color = "Green"
+              messageText.style.position = "Right"
+              messageText.textContent = `Seja bem vindo, ${nome}, Oque você Deseja?`
+              alert (messageText.textContent)
+              
 
+            }
+
+            showWelcomeMsg();
+            
+            const textos = document.querySelectorAll('.texto-animado');
+                let currentIndex = 0;
+            
+                function alternarTexto() {
+                    textos[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % textos.length;
+                    textos[currentIndex].classList.add('active');
+                }
+            
+                setInterval(alternarTexto, 6000); // Alterna a cada 6 segundos 
+            
+
+
+            </script>
+            
 </body>          
